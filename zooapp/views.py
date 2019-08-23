@@ -32,7 +32,7 @@ def login(request):
 
             log = Registration.objects.filter(email=email,password=password)
             if not log:
-                messages.error(request,'username or password not correct')
+                messages.error(request,'email or password not correct')
                 return render(request,'login.html')
             else:
                 return redirect(logout)
