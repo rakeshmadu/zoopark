@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 mx-auto" style="margin-top: 70px">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %} {{user}} successful login! {{id}}
+                <div class="pull-right">
+                    <button type="Submit" class="btn btn-primary float-right">logout</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
