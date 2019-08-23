@@ -19,7 +19,7 @@ def Sign(request):
         form = Signupform(request.POST)
         if form.is_valid():
             form.save()   
-        return redirect(login)
+        return redirect(logout)
     return render(request,'registration.html',{'form':form})
 
 def login(request):
@@ -35,13 +35,10 @@ def login(request):
                 messages.error(request,'username or password not correct')
                 return render(request,'login.html')
             else:
-                return redirect(home)
+                return redirect(logout)
         else:
             return render(request,'login.html',{'form':form})
     return render(request,'login.html',{'form':form})
 
 def logout(request):
-    context = {}
-    logout(request)
-    context['error'] = "You have been logged out"
-    return render(request, 'login.html', context)
+    return render(request,'logout.html')
